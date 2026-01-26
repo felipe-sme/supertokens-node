@@ -35,21 +35,21 @@ export default class Wrapper {
         enableRequestSigning?: boolean;
         userContext?: Record<string, any>;
     }) {
-        Recipe.getInstanceOrThrowError().recipeInterfaceImpl.createOrUpdateClient({
+        return Recipe.getInstanceOrThrowError().recipeInterfaceImpl.createOrUpdateClient({
             ...input,
             userContext: getUserContext(input.userContext),
         });
     }
 
     static listClients(input: { tenantId: string; userContext?: Record<string, any> }) {
-        Recipe.getInstanceOrThrowError().recipeInterfaceImpl.listClients({
+        return Recipe.getInstanceOrThrowError().recipeInterfaceImpl.listClients({
             ...input,
             userContext: getUserContext(input.userContext),
         });
     }
 
     static removeClient(input: { tenantId: string; clientId: string; userContext?: Record<string, any> }) {
-        Recipe.getInstanceOrThrowError().recipeInterfaceImpl.removeClient({
+        return Recipe.getInstanceOrThrowError().recipeInterfaceImpl.removeClient({
             ...input,
             userContext: getUserContext(input.userContext),
         });
@@ -63,7 +63,7 @@ export default class Wrapper {
         acsURL: string;
         userContext?: Record<string, any>;
     }) {
-        Recipe.getInstanceOrThrowError().recipeInterfaceImpl.createLoginRequest({
+        return Recipe.getInstanceOrThrowError().recipeInterfaceImpl.createLoginRequest({
             ...input,
             userContext: getUserContext(input.userContext),
         });
@@ -75,7 +75,7 @@ export default class Wrapper {
         relayState: string | undefined;
         userContext?: Record<string, any>;
     }) {
-        Recipe.getInstanceOrThrowError().recipeInterfaceImpl.verifySAMLResponse({
+        return Recipe.getInstanceOrThrowError().recipeInterfaceImpl.verifySAMLResponse({
             ...input,
             userContext: getUserContext(input.userContext),
         });
@@ -87,7 +87,7 @@ export default class Wrapper {
         clientId: string;
         userContext?: Record<string, any>;
     }) {
-        Recipe.getInstanceOrThrowError().recipeInterfaceImpl.getUserInfo({
+        return Recipe.getInstanceOrThrowError().recipeInterfaceImpl.getUserInfo({
             ...input,
             userContext: getUserContext(input.userContext),
         });
