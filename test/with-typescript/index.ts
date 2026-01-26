@@ -34,6 +34,7 @@ import Dashboard from "../../recipe/dashboard";
 import JWT from "../../recipe/jwt";
 import AccountLinking from "../../recipe/accountlinking";
 import MultiFactorAuth from "../../recipe/multifactorauth";
+import SAML from "../../recipe/saml";
 import { verifySession as customVerifySession } from "../../recipe/session/framework/custom";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -2430,3 +2431,18 @@ Supertokens.init({
         ],
     },
 });
+
+async function samlTest() {
+    const createLoginRequestRes = await SAML.createLoginRequest({} as any);
+    console.log(createLoginRequestRes.status);
+    const createOrUpdateClientRes = await SAML.createOrUpdateClient({} as any);
+    console.log(createOrUpdateClientRes.status);
+    const getUserInfoRes = await SAML.getUserInfo({} as any);
+    console.log(getUserInfoRes.status);
+    const listClientsRes = await SAML.listClients({} as any);
+    console.log(listClientsRes.status);
+    const removeClientRes = await SAML.removeClient({} as any);
+    console.log(removeClientRes.status);
+    const verifySAMLResponseRes = await SAML.verifySAMLResponse({} as any);
+    console.log(verifySAMLResponseRes.status);
+}
